@@ -31,8 +31,8 @@ $(document).ready(function() {
 	});
 	
 	$('#loginButton').on('click', function() {
-		var email = $('#email_log').val();
-		var password = $('#password_log').val();
+		let email = $('#email_log').val(),
+		    password = $('#password_log').val();
 		if(email!="" && password!="" ){
 			$.ajax({
 				url: "save.php",
@@ -47,14 +47,12 @@ $(document).ready(function() {
 					var dataResult = JSON.parse(dataResult);
 					if(dataResult.statusCode==200){
 						location.href = "welcome.php";		
-					}
-					else if(dataResult.statusCode==201){
-                        return alert('Invalid Email ID or password!');
+					} else if(dataResult.statusCode==201){
+						return alert('Invalid Email ID or password!');
 					}
 				}
 			});
-		}
-		else{
+		} else {
 			alert('Please fill all the field !');
 		}
 	});
